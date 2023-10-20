@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text="Atras" defauLtRef="/"  ></ion-back-button>
+      <ion-title>Estacionamientos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true">
+  
+  <div class="ae-container-fluid animated fadeInDown">
+    <ion-buttons>
+      <ion-back-button text="Atras" defauLtRef="/" ></ion-back-button>
+      
+    </ion-buttons>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="https://parklio.com/assets/img/blog/100003/the-best-solution-for-parking-protection_1657283968214.jpg" alt="First slide">
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <ion-card  *ngFor="let Est of estacionamiento">
+      <ion-card-header>
+        <ion-card-title></ion-card-title>
+        
+        <ion-card-subtitle>Puntuacion: {{Est.puntuacion}} <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" height="20px" width="20px" alt=""> </ion-card-subtitle>
+      </ion-card-header>
+      
+    
+      <ion-card-content>
+        
+        
+        Capacidad: {{Est.capacidad}} <br>
+        Direccion: {{Est.direccion}} <br>
+        Precio: {{Est.precio}} <br> <br>
+        Descripción: {{Est.descripcion}} <br>
+      </ion-card-content>
+    </ion-card >
+    
+  </div> 
+  <div id="container">
+    <ion-button color="ligth" (click)="obtenerUbicacion()" >Obtener ubicacion</ion-button>
+    <ion-button color="ligth" routerLink="/mapa" >Ver ubicacion</ion-button>
+
+  </div> 
+</ion-content>

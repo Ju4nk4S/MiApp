@@ -1,0 +1,108 @@
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.ion-title {
+  display: flex;
+  font-size: 10px;
+  justify-content: center;
+  align-items: center;
+  color: light;
+  background-color: transparent;
+}
+
+.custom-header {
+  --background: #007bff;
+  --color: #ffffff;
+  --border-color: #0056b3;
+}
+
+.welcome-title {
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff00;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 490px;
+  text-align: center;
+  width: 90%;
+  position: relative;
+  margin: 10%, 10%;
+}
+
+.login-image {
+  width: 300px; 
+  height: 300px; 
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-button {
+  margin-top: 20px;
+  --background: #007bff;
+  --color: #fff;
+  font-weight: bold;
+}
+
+.register-label {
+  margin-top: 10px;
+}
+
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+}
+.ion-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0057b300;
+  font-size: 10px;
+  color: #fff;
+}
+ion-content {
+  --background: url('../../../assets/icon/fondo.jpeg');
+  display: block;
+  margin: 0 auto;
+  
+}
+ion-input {
+  color: #ffffff;
+} 
+
+
+ion-card {
+  --background: #000;
+  --color: #9efff0;
+}
+
+ion-card-title {
+  --color: #52ffe4;
+}
+
+ion-card-subtitle {
+  --color: #d1fff8;
+}

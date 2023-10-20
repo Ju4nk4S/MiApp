@@ -1,0 +1,31 @@
+
+<ion-content [fullscreen]="true" style="display: flex; justify-content: center; align-items: center; height: 1rem;">
+  <div class="container-fluer" style="padding: 20px; margin-top: 10px;">
+   
+    
+  
+      <div class="login-container">
+        <ion-img src="assets/icon/1.png" style="margin: auto;" class="login-image"></ion-img>
+        <div class="container-fluer" style="padding: 10px;">
+          <div class="row">
+            <div class="col-12">
+        <div class="input-container">
+          <h3 style="font-size: 30px;" class="personal-info-header">Inicia Sesión</h3>
+          <ion-input class="input-field" placeholder="Usuario" [(ngModel)]="username"></ion-input>
+          <ion-input class="input-field" type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+        </div>
+        <div class="button-container">
+          <ion-button color="light" class="button " style="margin-left: 10%;" (click)="ingreso()" >Iniciar Sesión</ion-button>
+          <ion-button color="light" class="button " [routerLink]="['/registro']" style="margin: auto;"  >Registrarse</ion-button>
+        </div>
+        <div class="forgot-password">
+          <p style="font-size: 20px;" >¿Olvidaste la contraseña? <a [routerLink]="['/restablecer']">Restablecer</a></p>
+        </div>
+      </div>        
+
+    </div>
+  </div>
+</div>
+</div>
+  
+</ion-content>

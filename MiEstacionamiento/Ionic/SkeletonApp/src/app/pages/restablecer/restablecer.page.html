@@ -1,0 +1,26 @@
+<ion-header> 
+  <ion-toolbar>
+    <ion-title>Restablecer contraseña</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content [fullscreen]="true" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="container-fluer" style="padding: 20px;margin-top: 10%;">
+    <div class="row">
+      <div class="col-12">
+        <div class="login-container">
+          <ion-input class="input-field" placeholder="Nombre de usuario" [(ngModel)]="username"></ion-input>
+          <ion-input class="input-field" placeholder="Correo asociado" ></ion-input>
+
+          <br>
+          <ion-button color="light" class="button" style="margin-left: 40%;"  (click)="ingreso()">Restablecer</ion-button>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

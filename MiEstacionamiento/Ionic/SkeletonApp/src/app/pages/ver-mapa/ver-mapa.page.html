@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text="Atras" defauLtRef="/"  ></ion-back-button>
+      <ion-title>Estacionamientos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-title>Estacionamientos</ion-title>
+
+  
+  <ion-card *ngFor="let Est of estacionamiento" >
+    <img src="../../../assets/icon/123.png" alt="">
+    
+    <ion-card-header>
+      
+      <ion-card-title> {{Est.disponibilidad}}</ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+     Dirección: {{Est.direccion}}
+    </ion-card-content>
+    <ion-button [routerLink]="['/estacionamiento', Est.cod]" color="secondary">Ver mapa</ion-button>
+
+  </ion-card>
+</ion-content>
