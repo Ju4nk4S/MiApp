@@ -1,31 +1,56 @@
+<ion-content [fullscreen]="true" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="container-fluid" style="padding: 20px; margin-top: 10px;">
+    <div class="login-container">
+      <ion-img src="assets/icon/1.png" style="margin: auto;" class="login-image"></ion-img>
+      <div class="container-fluid" style="padding: 10px;">
+        <div class="row">
+          <div class="col-12">
+            <div class="input-container">
+              <h3 style="font-size: 30px;" class="personal-info-header">Inicia Sesión</h3>
+                
+              <form [formGroup]="loginForm" >
 
-<ion-content [fullscreen]="true" style="display: flex; justify-content: center; align-items: center; height: 1rem;">
-  <div class="container-fluer" style="padding: 20px; margin-top: 10px;">
-   
-    
-  
-      <div class="login-container">
-        <ion-img src="assets/icon/1.png" style="margin: auto;" class="login-image"></ion-img>
-        <div class="container-fluer" style="padding: 10px;">
-          <div class="row">
-            <div class="col-12">
-        <div class="input-container">
-          <h3 style="font-size: 30px;" class="personal-info-header">Inicia Sesión</h3>
-          <ion-input class="input-field" placeholder="Usuario" [(ngModel)]="username"></ion-input>
-          <ion-input class="input-field" type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+                <div class="ion-padding">
+                  <ion-item>
+                    <ion-input class="input-field" formControlName="email" type="email" placeholder="Correo"></ion-input>
+                  </ion-item>
+                
+                  <div *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid">
+                    <ion-text *ngIf="errorControl.email.errors?.required">
+                      Ingrese su correo
+                    </ion-text>
+                    <ion-text *ngIf="errorControl.email.errors?.pattern">
+                      Ingrese correo valido
+                    </ion-text>
+                  </div>
+              
+                  <ion-item>
+                    <ion-input class="input-field" formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <div *ngIf="loginForm.controls?.['password'].touched && loginForm.controls?.['password'].invalid">
+                      <ion-text *ngIf="errorControl.password.errors?.required">
+                        Ingrese contraseña
+                      </ion-text>
+                      <ion-text *ngIf="errorControl.password.errors?.pattern">
+                        Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres
+                      </ion-text>
+                    </div>
+                  </ion-item>
+                  </div>
+                  <div class="button-container">
+                  <ion-button color="light" (click)="login()" class="button" style="margin-left: 10%;" >Iniciar Sesión</ion-button>
+                  <ion-button color="light" class="button" [routerLink]="['/registro']"  style="margin: auto;">Registrarse</ion-button>
+                </div>
+                <div class="forgot-password">
+                  <p style="font-size: 20px;">¿Olvidaste la contraseña? <a routerLink='/restablecer' > Restablecer </a></p>
+                </div>
+              </form>
+              
+            </div>]
+          </div>
         </div>
-        <div class="button-container">
-          <ion-button color="light" class="button " style="margin-left: 10%;" (click)="ingreso()" >Iniciar Sesión</ion-button>
-          <ion-button color="light" class="button " [routerLink]="['/registro']" style="margin: auto;"  >Registrarse</ion-button>
-        </div>
-        <div class="forgot-password">
-          <p style="font-size: 20px;" >¿Olvidaste la contraseña? <a [routerLink]="['/restablecer']">Restablecer</a></p>
-        </div>
-      </div>        
-
+      </div>
     </div>
   </div>
-</div>
-</div>
-  
 </ion-content>

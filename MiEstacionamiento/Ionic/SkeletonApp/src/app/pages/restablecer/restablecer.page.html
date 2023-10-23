@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Restablecer contraseña</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button text="Atras" defauLtRef="/"  ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header> 
@@ -12,12 +12,14 @@
     <div class="row">
       <div class="col-12">
         <div class="login-container">
-          <ion-input class="input-field" placeholder="Nombre de usuario" [(ngModel)]="username"></ion-input>
-          <ion-input class="input-field" placeholder="Correo asociado" ></ion-input>
-
-          <br>
-          <ion-button color="light" class="button" style="margin-left: 40%;"  (click)="ingreso()">Restablecer</ion-button>
-          <br>
+          
+            <ion-item>
+            <ion-input class="input-field" placeholder="Nombre de usuario" [(ngModel)]="email" ></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-button color="light" (click)="restablecer()" class="button" style="margin-left: 55%;">Restablecer</ion-button>
+          </ion-item>
+         
         </div>
       </div>
     </div>

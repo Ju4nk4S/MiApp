@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NavigationExtras, Route, Router } from '@angular/router';
+import { AutheticationService } from 'src/app/authetication.service';
+import { NavigationExtras,  Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-restablecer',
@@ -10,32 +10,22 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./restablecer.page.scss'],
 })
 export class RestablecerPage implements OnInit {
-  username: any;
-
-  constructor(private alertController: AlertController, private router: Router) { }
-
-    
-
-   
-
-  ngOnInit() {
-  }
-
-  async ingreso(){
-    
-    const alert = await this.alertController.create({
-      header: 'Bienvenido/A',
-      message: 'Has ingresado correctamente :)',
-      buttons: ['Adelante '],
-    });
-
-      let users : NavigationExtras ={
-        queryParams: {nombreUser: this.username}
-      }
-
-      this.router.navigate(['/home'], users); 
-
-    }
+  email:any
+  constructor(
+    public alertController: AlertController, 
+    public route: Router,
+    public authService: AutheticationService
+    ) { }
+  ngOnInit() {    
+  }  
+  async restablecer(){
+    //this.authService.restablecer(this.email).then(()=> {
+      //console.log('link de recuperacion')  
+      //this.route.navigate(['/login'])      
+    //}).catch((error) => {
+     // console.log(error);      
+    //})
+  }  
 }
 
 

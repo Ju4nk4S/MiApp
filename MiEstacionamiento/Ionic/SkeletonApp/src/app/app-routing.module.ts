@@ -44,7 +44,16 @@ const routes: Routes = [
   {
     path: 'estacionamiento/:id',
     loadChildren: () => import('./pages/estacionamiento/estacionamiento.module').then( m => m.EstacionamientoPageModule)
-  }, {
+  }, 
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+  
+  {
+    path: 'aterrizaje',
+    loadChildren: () => import('./pages/aterrizaje/aterrizaje.module').then( m => m.AterrizajePageModule)
+  },{
     path: '**',
     loadChildren: () => import('./pages/not-foun/not-foun.module').then( m => m.NotFounPageModule)
   },

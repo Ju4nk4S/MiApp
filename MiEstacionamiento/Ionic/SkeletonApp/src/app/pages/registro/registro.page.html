@@ -1,31 +1,65 @@
-<ion-header> 
-  <ion-toolbar>
-  <ion-title >Registro</ion-title>
+<ion-header>
+  <ion-toolbar class="custom-header">
+    <ion-title>Registro</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header> 
-      
-    
+</ion-header>
 
-  
- <ion-content>
- 
-  <div class="container-fluer" style="padding: 20px;margin-top: 10%;">
-    <div class="row">
-      <div class="col-12">
+<ion-content class="login-page">
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col size="12" size-md="8" size-lg="6">
         <div class="login-container">
-          <ion-input class="input-field" placeholder="Nombre de usuario" [(ngModel)]="username"></ion-input>
-          <ion-input class="input-field" placeholder="Contraseña" ></ion-input>
-          <ion-input class="input-field" placeholder="Repita la Contraseña" ></ion-input>
+          <form [formGroup]="regForm" novalidate >
+            <ion-img src="assets/icon/1.png" class="login-image"></ion-img>
 
-          <br>
-          <ion-button color="light" class="button" style="margin-left: 40%;"  (click)="ingreso()">Crear</ion-button>
-          <br>
+            <ion-item>
+              <ion-input class="input-field" formControlName="name" placeholder="Nombre Completo*"></ion-input>
+            </ion-item>
+            <div *ngIf="regForm.controls?.['name'].touched && this.regForm.controls?.['name'].invalid">
+              <ion-text *ngIf="errorControl.name.errors?.required">
+                Ingrese su nombre
+              </ion-text>
+            </div>
+
+            <ion-item>
+              <ion-input class="input-field" formControlName="email" type="email" placeholder="Correo"></ion-input>
+            </ion-item>
+            <div *ngIf="regForm.controls?.['email'].touched && regForm.controls?.['email'].invalid">
+              <ion-text *ngIf="errorControl.email.errors?.required">
+                Ingrese su correo
+              </ion-text>
+              <ion-text *ngIf="errorControl.email.errors?.pattern">
+                Ingrese correo valido
+              </ion-text>
+            </div>
+
+            <ion-item>
+              <ion-input class="input-field" formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+            </ion-item>
+            <div *ngIf="regForm.controls?.['password'].touched && regForm.controls?.['password'].invalid">
+              <ion-text *ngIf="errorControl.password.errors?.required">
+                Ingrese contraseña
+              </ion-text>
+              <ion-text *ngIf="errorControl.password.errors?.pattern">
+                Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres
+              </ion-text>
+            </div>
+
+            <ion-item>
+              <ion-button color="light" (click)="signUp()" class="button-login-button" type="submit">Crear</ion-button>
+            </ion-item>
+          </form>
         </div>
-      </div>
-    </div>
-  </div>
-
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-padding welcome-footer">
+  <ion-toolbar class="ion-no-border custom-header">
+    <ion-title class="ion-no-padding welcome-title">¡Bienvenido!</ion-title>
+  </ion-toolbar>
+</ion-footer>
