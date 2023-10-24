@@ -1,98 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Route, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { AutheticationService } from 'src/app/authetication.service';
+import { AlertController, LoadingController } from '@ionic/angular';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  username: String = '';
-  password: String = '';
-
+  loginForm : FormGroup
   constructor(
-    private alertController: AlertController,
-    private router: Router, private storage: Storage
-  ) {
+    public formBuilder: FormBuilder, 
+    public loadingCtrl: LoadingController, 
+    public authService:AutheticationService,
+    public alertController: AlertController,
+    public router: Router, 
+    public storage: Storage
+  ) {}
 
-  }
 
 
-
-
-  async  ngOnInit() {
-    await this.storage.create();
-  }
-
-  // ALERTAS !
-  async showPassword() {
-    const alerta = await this.alertController.create({
-      header: 'Error',
-      message: 'La contraseña debe tener 4 caracteres',
-      buttons: ['ok'],
-    });
-    await alerta.present();
-  }
-
-  async Exito() {
-    const alerta = await this.alertController.create({
-      header: 'Bienvenido/A',
-      message: 'Has ingresado correctamente :)',
-      buttons: ['Ingresar '],
-    });
-    await alerta.present();
-  }
-
-  async registro() {
-    const alerta = await this.alertController.create({
-      header: 'Registrate con tu correo electronico',
-      buttons: ['registro '],
-    });
-    await alerta.present();
-  }
-
-  async showWarningAlert() {
-    const alert = await this.alertController.create({
-      header: 'Advertencia',
-      message: 'El nombre de usuario debe tener entre 3 y 8 caracteres.',
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-  }
-  // fin alertas
-
-  async ingreso() {
-    if(this.username.length >=3 && this.username.length <=8) {
-      console.log("valido")
-      
-      
-    }else{
-      this.showWarningAlert();
-    }
-    if (this.password.length == 4){
-      
-      console.log("valido")
-    }else{
-      this.showPassword();
-    }
-    let users: NavigationExtras = {
-      queryParams: { nombreUser: this.username },
-    };
-    this.router.navigate(['/home'], users);
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+        
+      email: ['', [
+      Validators.required, 
+      Validators.email,
+      Validators.pattern("[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$")
+    ]],
+      password: ['', [
+      Validators.required,
+      Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[0-8])(?=.*[A-Z]).{8,}")
+    ]]
     
-    const alert = await this.alertController.create({
-      header: 'Bienvenido/A',
-      message: 'Has ingresado correctamente :)',
-      buttons: ['Adelante '],
-    });
+ })
+}
+get errorControl(){
+  return this.loginForm?.controls;
+}
 
- 
-  //guardar información storege
-
-  this.storage.set("nombreUsuario", "Josue")
-
-    
+async login(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    if (this.loginForm?.valid) {
+      const user = await this.authService.loginUsuario(this.loginForm.value.email, this.loginForm.value.password).catch((error) => {
+          console.log(error);
+          loading.dismiss() 
+      
+      })
+      if(user){
+        loading.dismiss()
+        this.router.navigate(['/home'])
+      }else{
+        console.log('provide correct vlues ');
+      }
+    } 
   }
 }
+ 
+  
+
+
+

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "prueba-bbd7a": {
+      "hosting": {
+        "app": [
+          "prueba-bbd7a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "prueba-bbd7a"
+  }
+}

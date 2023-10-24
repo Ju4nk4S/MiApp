@@ -84,9 +84,29 @@
     color: #fff;
   }
   ion-content {
-    --background: url('../../../assets/icon/fondo.jpeg') no-repeat center center fixed;
+    --background: url('../../../assets/icon/fondo.jpeg');
     background-size: cover;
+    
   }
   ion-input {
     color: #ffffff;
   } 
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background: url('../../../assets/icon/fondo.jpeg');
+  }
+  
+  .welcome-footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: transparent; /* Cambiamos el fondo para que sea transparente */
+    color: #fff;
+    padding-bottom: 20px; /* Espacio en la parte inferior del pie de página */
+  }
+  
