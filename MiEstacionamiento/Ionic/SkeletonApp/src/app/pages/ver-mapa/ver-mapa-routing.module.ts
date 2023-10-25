@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: VerMapaPage
+  },
+  {
+    path: 'estacionamiento',
+    loadChildren: () => import('./estacionamiento/estacionamiento.module').then( m => m.EstacionamientoPageModule)
   }
 ];
 

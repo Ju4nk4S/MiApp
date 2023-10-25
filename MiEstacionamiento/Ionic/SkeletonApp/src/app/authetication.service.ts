@@ -7,9 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AutheticationService {
   restablecer(email: any) {
-    throw new Error('Method not implemented.');
-  }
-
+    throw new Error('Method not implemented.');  }S
 
   constructor(public ngFireAuth: AngularFireAuth) { }
 

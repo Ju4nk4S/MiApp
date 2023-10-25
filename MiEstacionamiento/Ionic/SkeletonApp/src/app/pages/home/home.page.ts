@@ -11,10 +11,7 @@ import { AutheticationService } from 'src/app/authetication.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
-})
-
-
+  styleUrls: ['./home.page.scss'],})
 export class HomePage implements OnInit {
   user: any
   mensaje: string= "";
@@ -22,12 +19,7 @@ export class HomePage implements OnInit {
   nombres : string = "";
   router: any;  
   estacionamiento: any;
-
-  constructor(
-    public rutaActiva: ActivatedRoute,
-    public alertController: AlertController, 
-    public storage: Storage, 
-    public as:EstacionamientoService,
+  constructor(public rutaActiva: ActivatedRoute,public alertController: AlertController, public storage: Storage,public as:EstacionamientoService,
     public authService: AutheticationService,
     public route: Router ) { 
     this.user = authService.perfil( )

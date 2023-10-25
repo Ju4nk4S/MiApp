@@ -13,21 +13,17 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { EstasionamientosComponent } from './componentes/estasionamientos/estasionamientos.component';
-
 @NgModule({
   declarations: [
     AppComponent, 
-    EstasionamientosComponent,
-     ],
-  imports: [
+    EstasionamientosComponent,], imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
     IonicStorageModule.forRoot()
   , HttpClientModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    
+    AngularFireAuthModule,    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase())

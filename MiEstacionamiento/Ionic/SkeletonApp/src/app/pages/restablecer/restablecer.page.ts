@@ -19,7 +19,7 @@ export class RestablecerPage implements OnInit {
   ngOnInit() {    
   }  
   async restablecer(){
-    this.authService.restablecer(this.email).then(()=> {
+    this.authService.restablecer(this.email).this(()=> {
       console.log('link de recuperacion')  
       this.route.navigate(['/login'])      
     }).catch((error) => {
